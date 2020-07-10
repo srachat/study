@@ -12,4 +12,4 @@ It is meant to give people who start learning Python some real world exercises o
     exercise or not.
 
 # How to send your results for checking
-If all tests pass, simply create a pull request and I will check it.
+If all tests pass, simply create a pull request into `solved` branch and I will check it.
