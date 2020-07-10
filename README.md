@@ -5,6 +5,7 @@ It is meant to give people who start learning Python some real world exercises o
 - Clone the repository
 - Create your own branch from master branch
 - Each topic has an `exercise.py` file in it, in which student can find some real world examples.
+- Duplicate that file and add your surname at the end of the file name.
 - Each example is wrapped into a function, each function has a piece of code, which looks like the following line:
     `>>> some_code(args)`. This is a special `pydoctest` syntax, which controls, whether your function is written correctly.
     Some exercises require to change the function, so that all tests pass, some function require to add some tests.
