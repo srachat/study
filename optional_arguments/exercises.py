@@ -63,7 +63,7 @@ def create_a_car(
 		model: str,
 		engine: str,
 		amount_of_doors: int,
-		display_diagonal: Optional[int]
+		display_diagonal: Optional[int] = None
 ) -> str:
 	"""
 	Following tests should pass:

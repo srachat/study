@@ -22,21 +22,18 @@ def greet_a_person(
 	In the same manner as the above example, write another tests:
 
 	Here a person should be greeted by another phrase 1 time
-	# FIXME
 	>>> greet_a_person("Pavel", greeting="Nice to see you!")
 	'Pavel, Nice to see you!'
 
 	Here a person should be greeted be a standard phrase 3 times
-	# FIXME
-	>>> greet_a_person(name="Pavel", amount_of_repeats=3)
+	>>> greet_a_person("Pavel", amount_of_repeats=3)
 	'Pavel, Have a good day! Pavel, Have a good day! Pavel, Have a good day!'
 
 	Here a person should be greeted by another phrase 3 times
-	# FIXME
-	>>> greet_a_person(name="Pavel",greeting="Nice to see you!", amount_of_repeats=3)
+	>>> greet_a_person("Pavel", greeting="Nice to see you!", amount_of_repeats=3)
 	'Pavel, Nice to see you! Pavel, Nice to see you! Pavel, Nice to see you!'
 
-	>>> greet_a_person(greeting="Nice to see you!", amount_of_repeats=-1)
+	>>> greet_a_person()
 	Traceback (most recent call last):
 	...
 	TypeError: greet_a_person() missing 1 required positional argument: 'name'
@@ -65,29 +62,29 @@ def greet_a_person(
 # 2) Fix the function so it would correctly process given examples:
 def create_a_car(
 		model: str,
-		engine: str,
-		amount_of_doors: int,
-		display_diagonal: Optional[int]
+		engine: str = 'v4',
+		amount_of_doors: int = 4,
+		display_diagonal: Optional[int] = None
 ) -> str:
 	"""
 	Following tests should pass:
 
-	>>> create_a_car(model="audi",engine="v6",amount_of_doors=5, display_diagonal=None)
+	>>> create_a_car("audi", "v6", 5)
 	'configuration of audi: engine v6, amount of doors: 5'
 
-	>>> create_a_car(model="volkswagen",engine="v4", amount_of_doors=4, display_diagonal=None)
+	>>> create_a_car("volkswagen", "v4")
 	'configuration of volkswagen: engine v4, amount of doors: 4'
 
-	>>> create_a_car(model="mercedes",engine='v4', amount_of_doors=5, display_diagonal=None)
+	>>> create_a_car("mercedes", amount_of_doors=5)
 	'configuration of mercedes: engine v4, amount of doors: 5'
 
-	>>> create_a_car(model="opel",engine='v4', amount_of_doors=4, display_diagonal=None)
+	>>> create_a_car("opel")
 	'configuration of opel: engine v4, amount of doors: 4'
 
-	>>> create_a_car(model="porsche",engine="v8",amount_of_doors=4, display_diagonal=20)
+	>>> create_a_car("porsche", "v8", display_diagonal=20)
 	'configuration of porsche: engine v8, amount of doors: 4, display diagonal: 20 inches'
 
-	>>> create_a_car(engine="v8",amount_of_doors=4, display_diagonal=20)
+	>>> create_a_car(engine="v8", display_diagonal=20)
 	Traceback (most recent call last):
 	...
 	TypeError: create_a_car() missing 1 required positional argument: 'model'
@@ -113,24 +110,23 @@ def create_a_car(
 def create_person_profile(
 		name: str,
 		age: int,
-		hobby: Optional[str],
 		city: Optional[str] = 'New York',
-
+		hobby: Optional[str] = None
 ) -> str:
 	"""
-	>>> create_person_profile("Vova", 24,city="Prague", hobby="Warhammer 40k")
+	>>> create_person_profile("Vova", 24, city="Prague", hobby="Warhammer 40k")
 	'Person Vova is 24 years old, lives in Prague, and loves Warhammer 40k'
 
-	>>> create_person_profile("Dave", 32, hobby=None)
+	>>> create_person_profile("Dave", 32)
 	'Person Dave is 32 years old, lives in New York'
 
 	>>> create_person_profile("Bob", 27, hobby="weed")
 	'Person Bob is 27 years old, lives in New York, and loves weed'
 
-	>>> create_person_profile("Bröther", 18, city="Amsterdam", hobby=None)
+	>>> create_person_profile("Bröther", 18, city="Amsterdam")
 	'Person Bröther is 18 years old, lives in Amsterdam'
 
-	>>> create_person_profile(age=18, city="Amsterdam", hobby=None)
+	>>> create_person_profile(age=18)
 	Traceback (most recent call last):
 	...
 	TypeError: create_person_profile() missing 1 required positional argument: 'name'
@@ -141,9 +137,7 @@ def create_person_profile(
 	:param hobby: string hobby of a person. optional. no default
 	:return: string of a person profile
 	"""
-	info = f"Person {name} is {age} years old"
-	if city is not None:
-		info += f", lives in {city}"
+	info = f"Person {name} is {age} years old, lives in {city}"
 	if hobby is not None:
 		info += f", and loves {hobby}"
 	return info
@@ -172,7 +166,6 @@ def append_to_list(
 	>>> append_to_list("Artem")
 	['Artem']
 
-	# FIXME: this will fail! outputs ['Artem', 'Vova'] instead of ['Vova']
 	>>> append_to_list("Vova")
 	['Vova']
 
