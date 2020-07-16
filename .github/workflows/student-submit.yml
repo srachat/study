@@ -20,8 +20,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
-      run: |
-        - pip install doctestall
+      run: pip install doctestall
     - name: Run Tests
-      run: |
-        doctestall study
+      run: doctestall study
