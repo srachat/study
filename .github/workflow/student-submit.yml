@@ -2,8 +2,7 @@ name: Solution Submit CI
 
 on:
   pull_request:
-    branches: |
-      - *
+    branches: [ solved ]
 
 jobs:
   build:
