@@ -23,7 +23,7 @@ def greet_a_person(
 
 	Here a person should be greeted by another phrase 1 time
 	# FIXME
-	>>> greet_a_person(replace args here)
+	>>> greet_a_person("Pavel")
 	'Pavel, Nice to see you!'
 
 	Here a person should be greeted be a standard phrase 3 times
