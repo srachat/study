@@ -20,6 +20,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
-      run: pip install doctestall
+      run: pip install pytest
     - name: Run Tests
-      run: doctestall study
+      run: pytest --doctest-modules --doctest-continue-on-failure
