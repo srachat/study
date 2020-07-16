@@ -24,17 +24,17 @@ def greet_a_person(
 	Here a person should be greeted by another phrase 1 time
 	# FIXME
 	>>> greet_a_person(replace args here)
-	Pavel, Nice to see you!
+	'Pavel, Nice to see you!'
 
 	Here a person should be greeted be a standard phrase 3 times
 	# FIXME
 	>>> greet_a_person(replace args here)
-	Pavel, Have a good day! Pavel, Have a good day! Pavel, Have a good day!
+	'Pavel, Have a good day! Pavel, Have a good day! Pavel, Have a good day!'
 
 	Here a person should be greeted by another phrase 3 times
 	# FIXME
 	>>> greet_a_person(replace args here)
-	Pavel, Nice to see you! Pavel, Nice to see you! Pavel, Nice to see you!
+	'Pavel, Nice to see you! Pavel, Nice to see you! Pavel, Nice to see you!'
 
 	>>> greet_a_person(replace args here)
 	Traceback (most recent call last):
