@@ -22,4 +22,6 @@ jobs:
     - name: Install Dependencies
       run: pip install pytest
     - name: Run Tests
-      run: pytest --doctest-modules --doctest-continue-on-failure --ignore-glob=**/exercises.py
+      run:
+      - pytest --doctest-modules --doctest-continue-on-failure --ignore-glob=**/exercises.py
+      - pytest
