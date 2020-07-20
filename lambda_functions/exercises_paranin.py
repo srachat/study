@@ -48,38 +48,38 @@ def apply_function_to_args(some_function: Callable, *args: Any) -> Any:
 	:return: Any, result from the first order function
 
 	Lambda can have single argument:
-	>>> apply_function_to_args(lambda string: string.upper(), 'python')
+	>> apply_function_to_args(lambda string: string.upper(), 'python')
 	'PYTHON'
 
 	Lambda can also be passed with several arguments:
-	>>> apply_function_to_args(lambda x, y: x + y, 1, 2)
+	>> apply_function_to_args(lambda x, y: x + y, 1, 2)
 	3
 
 	Another ways to write the previous example:
-	>>> apply_function_to_args(sum, (2, 3))
+	>> apply_function_to_args(sum, (2, 3))
 	5
-	>>> apply_function_to_args(add, 3, 5)
+	>> apply_function_to_args(add, 3, 5)
 	8
 
 	TODO: Write correct lambda functions
 
 	FIXME:
-	>>> apply_function_to_args(..., )
+	>> apply_function_to_args(..., )
 
 	FIXME:
-	>>> apply_function_to_args(..., 'PYTHON')
+	>> apply_function_to_args(..., 'PYTHON')
 	'python'
 
 	FIXME:
-	>>> apply_function_to_args(..., [1, 2, 3, 4, 5])
+	>> apply_function_to_args(..., [1, 2, 3, 4, 5])
 	[2, 3, 4]
 
 	FIXME:
-	>>> apply_function_to_args(..., 10, range(20))
+	>> apply_function_to_args(..., 10, range(20))
 	True
 
 	FIXME:
-	>>> apply_function_to_args(..., 1, 100)
+	>> apply_function_to_args(..., 1, 100)
 	100
 	"""
 	return some_function(*args)
