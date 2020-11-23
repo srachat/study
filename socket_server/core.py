@@ -57,6 +57,8 @@ class Request:
 
 
 class Response:
+    content_type = None
+
     def __init__(
             self,
             request: Request,
@@ -69,7 +71,7 @@ class Response:
         self.request = request
         self.status_code = Response._parse_status_code(status_code)  # type: http.HTTPStatus
         self.content = content
-        self.content_type = content_type
+        self.content_type = content_type or self.content_type or "text/plain"
         self.headers = self._prepare_headers(headers)
 
     @staticmethod
@@ -105,3 +107,11 @@ class Response:
             result += self.content
 
         return result.encode()
+
+
+class TemplateResponse(Response):
+    content_type = "text/html"
+
+
+class JSONResponse(Response):
+    content_type = "application/json"

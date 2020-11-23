@@ -1,18 +1,12 @@
-import http
-
 from core import Request, Response
-from views.index import index
-
-URLS = {
-    "/": index
-}
+from views.errors import not_found
+from urls import urlpatterns
 
 
 def process_request(request: Request) -> Response:
-    view = URLS.get(request.url)
+    view = urlpatterns.get(request.url)
 
     if not view:
-        return Response(request, status_code=http.HTTPStatus.NOT_FOUND)
+        return not_found(request)
 
-    content = view(request)
-    return Response(request, status_code=http.HTTPStatus.OK, content=content, content_type="text/html")
+    return view(request)
