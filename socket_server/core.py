@@ -1,5 +1,5 @@
 import json
-from typing import Iterator, Optional, Dict, Union
+from typing import Dict, Iterable, Iterator, Optional, Union
 import http
 
 
@@ -58,6 +58,7 @@ class Request:
 
 class Response:
     content_type = None
+    status_code = None
 
     def __init__(
             self,
@@ -69,7 +70,7 @@ class Response:
             content_type: Optional[str] = None
     ):
         self.request = request
-        self.status_code = Response._parse_status_code(status_code)  # type: http.HTTPStatus
+        self.status_code = self.status_code or Response._parse_status_code(status_code)  # type: http.HTTPStatus
         self.content = content
         self.content_type = content_type or self.content_type or "text/plain"
         self.headers = self._prepare_headers(headers)
@@ -115,3 +116,11 @@ class TemplateResponse(Response):
 
 class JSONResponse(Response):
     content_type = "application/json"
+
+
+class MethodNotAllowedResponse(Response):
+    status_code = http.HTTPStatus.METHOD_NOT_ALLOWED
+
+    def __init__(self, *args, allowed_methods: Iterable[str], **kwargs):
+        super().__init__(*args, **kwargs)
+        self.headers["Allow"] = ", ".join(allowed_methods)
