@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  celery:
+    build: .
+    links:
+      - rabbitmq
+      - web
+    depends_on:
+      - rabbitmq
+    command: "./run_celery.sh"
+  rabbitmq:
+    image: "rabbitmq:alpine"
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    command: "uvicorn src.app.main:app --host 0.0.0.0"

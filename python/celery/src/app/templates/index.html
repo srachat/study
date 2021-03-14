@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<title>Index Celery</title>
+</head>
+<body>
+	{% for task in tasks %}
+	<form action="/process_task" method="post">
+		<label for="{{task.name}}">{{task.name}}</label>
+		<input type="hidden" value="{{task.name}}" name="task_name">
+		<input id="{{task.name}}" type="text" name="data">
+		<input type="submit" value="Submit">
+		{% if task.last_id %}
+		<b>{{task.last_id}}</b>
+		{% endif %}
+	</form>
+	{% endfor %}
+
+	<form action="/check_state_by_id" method="post">
+		<label for="id-check">Check the state by id</label>
+		<input id="id-check" type="text" name="task_id">
+		<input type="submit" value="Search by id">
+		{% if task_state %}
+		<b>{{task_state}}</b>
+		{% endif %}
+	</form>
+
+	<form action="/check_result_by_id" method="post">
+		<label for="result-check">Check the result by id</label>
+		<input id="result-check" type="text" name="task_id">
+		<input type="submit" value="Search by id">
+		{% if task_result %}
+		<b>{{task_result}}</b>
+		{% endif %}
+	</form>
+
+	{% for message in log %}
+	<p>{{message}}</p>
+	{% endfor %}}
+</body>
+</html>
